@@ -12,7 +12,7 @@ pipeline {
   stages {
         stage('git checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/jitendrapsingh/pipeline1jenkinsfile'
+                git branch: 'master', url: 'https://github.com/jitendrapsingh/pipeline1jenkinsfile'
             }
         }
         stage('terrafrom  init'){
