@@ -5,6 +5,8 @@ variable "SECRET_KEY" {}
 variable "Plan_Name" {}
 variable "Rule_Name" {}
 variable "VAULT_NAME" {}
+variable "IAM_Role" {}
+
 
 provider "aws" {
   region     = var.REGION
