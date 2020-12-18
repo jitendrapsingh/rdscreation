@@ -69,5 +69,5 @@ output "Vault_name" {
  value = "${aws_backup_vault.testvault.name}"
  }
 output "IAM_Role_Name" {
- value = "{aws_iam_role.IAM_Role.name}"
+ value = "${aws_iam_role.IAM_Role.name}"
  }
