@@ -50,7 +50,7 @@ resource "aws_iam_role_policy_attachment" "IAM_ROle" {
 
 resource "aws_backup_selection" "selection1" {
   iam_role_arn = aws_iam_role.IAM_Role.arn
-  name         = "tf_IAM_Role_backup_selection"
+  name         = "Resource"
   plan_id      = aws_backup_plan.plan1.id
 
   selection_tag {
@@ -62,5 +62,12 @@ resource "aws_backup_selection" "selection1" {
 
 ##Added the Output Sections
 output "Backup_Plan_Name" {
-  value = "${aws_backup_plan.plan1.id}"
+  value = "${aws_backup_plan.plan1.name}"
 }
+
+output "Vault_name" {
+ value = "${aws_backup_vault.testvault.name}"
+ }
+output "IAM_Role_Name" {
+ value = "{aws_iam_role.IAM_Role.name}"
+ }
