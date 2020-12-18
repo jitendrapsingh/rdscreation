@@ -62,5 +62,5 @@ resource "aws_backup_selection" "selection1" {
 
 ##Added the Output Sections
 output "Backup_Plan_Name" {
-  value = "${aws_backup_plan.name}"
+  value = "${aws_backup_plan.plan1.id}"
 }
