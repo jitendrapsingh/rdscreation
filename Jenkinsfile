@@ -1,11 +1,11 @@
 properties([  parameters([
   credentials (credentialType: 'com.cloudbees.jenkins.plugins.awscredentials.AWSCredentialsImpl', defaultValue: '', description: '', name: 'CREDENTIALS', required: false), choice (choices: ['us-east-1', 'us-west-2 ', 'eu-west-1'], description: 'Please Choose your Region', name: 'REGION'),
-  string (defaultValue: '', description: '', name: 'Plan_Name', trim: false),
-  string (defaultValue: '', description: '', name: 'VAULT_NAME', trim: false),
-  string (defaultValue: '', description: '', name: 'Rule_Name', trim: false),
-  string (defaultValue: '', description: '', name: 'IAM_Role', trim: false),
-  string (defaultValue: '', description: '', name: 'selection_tag', trim: false),
- string (defaultValue: '', description: '', name: 'Resource_Name', trim: false)
+  string (defaultValue: '', description: 'Please type the new Plan Name', name: 'Plan_Name', trim: false),
+  string (defaultValue: '', description: 'Please type the new Vault Name', name: 'VAULT_NAME', trim: false),
+  string (defaultValue: '', description: 'Please type backup Rule Name', name: 'Rule_Name', trim: false),
+  string (defaultValue: '', description: 'Please type Role Name', name: 'IAM_Role', trim: false),
+  string (defaultValue: '', description: 'Please type correct Tag name of EC2/RDS', name: 'selection_tag', trim: false),
+ string (defaultValue: '', description: 'Please type Resource Name', name: 'Resource_Name', trim: false)
   
   
    ])
