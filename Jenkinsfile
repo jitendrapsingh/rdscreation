@@ -16,7 +16,7 @@ pipeline {
   stages {
         stage('git checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/jitendrapsingh/pipeline1jenkinsfile'
+                git branch: 'master', url: 'https://github.com/jitendrapsingh/jenkinsfile2backup'
             }
         }
         stage('terrafrom  init'){
