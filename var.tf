@@ -6,7 +6,7 @@ variable "Plan_Name" {}
 variable "Rule_Name" {}
 variable "VAULT_NAME" {}
 variable "IAM_Role" {}
-variable "TagName" {}
+variable "Tag_Name" {}
 
 
 provider "aws" {
