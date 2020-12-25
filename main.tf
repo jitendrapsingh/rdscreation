@@ -50,7 +50,7 @@ resource "aws_iam_role_policy_attachment" "IAM_ROle" {
 
 resource "aws_backup_selection" "selection1" {
   iam_role_arn = aws_iam_role.IAM_Role.arn
-  name         = "Resource"
+  name         =  var.Resource_Name
   plan_id      = aws_backup_plan.plan1.id
 
   selection_tag {
