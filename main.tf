@@ -23,9 +23,10 @@ resource "aws_backup_plan" "plan1" {
     lifecycle = {
        cold_storage_after = 0
        delete_after       = 7
-  }
+    }
 
-}
+  }
+ }
 ##Added the selection & IAM Role Parameter.
 
 resource "aws_iam_role" "IAM_Role" {
