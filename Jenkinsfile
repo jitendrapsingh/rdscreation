@@ -3,7 +3,7 @@ properties([  parameters([
   string (defaultValue: '', description: '', name: 'Plan_Name', trim: false),
   string (defaultValue: '', description: '', name: 'VAULT_NAME', trim: false),
   string (defaultValue: '', description: '', name: 'Rule_Name', trim: false),
-  string (defaultValue: '', description: '', name: 'IAM_Role', trim: false)
+  string (defaultValue: '', description: '', name: 'IAM_Role', trim: false),
   string (defaultValue: '', description: '', name: 'TagName', trim: false)
   
    ])
