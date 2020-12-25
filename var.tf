@@ -7,7 +7,7 @@ variable "Rule_Name" {}
 variable "selection_tag" {}
 variable "VAULT_NAME" {}
 variable "IAM_Role" {}
-varibale "Resource_Name" {}
+variable "Resource_Name" {}
 
 
 
