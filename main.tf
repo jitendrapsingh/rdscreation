@@ -56,7 +56,7 @@ resource "aws_backup_selection" "selection1" {
   selection_tag {
     type  = "STRINGEQUALS"
     key   = "Name"
-    value = "hosteddb"
+    value = var.Tag_Name
   }
 }
 
