@@ -4,9 +4,10 @@ variable "ACCESS_KEY" {}
 variable "SECRET_KEY" {}
 variable "Plan_Name" {}
 variable "Rule_Name" {}
+variable "selection_tag" {}
 variable "VAULT_NAME" {}
 variable "IAM_Role" {}
-variable "selection_tag" {}
+
 
 
 
