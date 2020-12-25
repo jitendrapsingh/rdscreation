@@ -20,7 +20,7 @@ resource "aws_backup_plan" "plan1" {
     schedule          = "cron(0 23 ? * SAT *)"
     start_window      = 120
     completion_window = 360
-    lifecycle = {
+    lifecycle  {
        cold_storage_after = 0
        delete_after       = 7
     }
