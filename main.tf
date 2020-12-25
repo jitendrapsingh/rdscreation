@@ -17,7 +17,7 @@ resource "aws_backup_plan" "plan1" {
   rule {
     rule_name         = var.Rule_Name
     target_vault_name = aws_backup_vault.testvault.name
-    schedule          = "cron(0 23 ? 1-12 L)"
+    schedule          = "cron(0 23 ? * SAT *)"
   }
 
 }
