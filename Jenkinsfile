@@ -4,6 +4,7 @@ properties([  parameters([
   string (defaultValue: '', description: '', name: 'VAULT_NAME', trim: false),
   string (defaultValue: '', description: '', name: 'Rule_Name', trim: false),
   string (defaultValue: '', description: '', name: 'IAM_Role', trim: false)
+  string (defaultValue: '', description: '', name: 'TagName', trim: false)
   
    ])
 ])
@@ -31,7 +32,7 @@ pipeline {
 			  secretKeyVariable: 'SECRET_KEY']]) {
 			  sh '''
 			  PATH=/usr/local/bin
-			  terraform plan -var "REGION=$REGION" -var "ACCESS_KEY=$ACCESS_KEY" -var "SECRET_KEY=$SECRET_KEY" -var "Plan_Name=$Plan_Name" -var "VAULT_NAME=$VAULT_NAME" -var "Rule_Name=$Rule_Name" -var "IAM_Role=$IAM_Role"'''
+			  terraform plan -var "REGION=$REGION" -var "ACCESS_KEY=$ACCESS_KEY" -var "SECRET_KEY=$SECRET_KEY" -var "Plan_Name=$Plan_Name" -var "VAULT_NAME=$VAULT_NAME" -var "Rule_Name=$Rule_Name" -var "IAM_Role=$IAM_Role" -var "TagName=$TagName"'''
                 }
            }
         }  
@@ -43,7 +44,7 @@ pipeline {
 			  secretKeyVariable: 'SECRET_KEY']]) {
 			  sh '''
 			  PATH=/usr/local/bin
-			  terraform apply --auto-approve  -var "REGION=$REGION" -var "ACCESS_KEY=$ACCESS_KEY" -var "SECRET_KEY=$SECRET_KEY" -var "Plan_Name=$Plan_Name" -var "VAULT_NAME=$VAULT_NAME" -var "Rule_Name=$Rule_Name" -var "IAM_Role=$IAM_Role"'''
+			  terraform apply --auto-approve  -var "REGION=$REGION" -var "ACCESS_KEY=$ACCESS_KEY" -var "SECRET_KEY=$SECRET_KEY" -var "Plan_Name=$Plan_Name" -var "VAULT_NAME=$VAULT_NAME" -var "Rule_Name=$Rule_Name" -var "IAM_Role=$IAM_Role" -var "TagName=$TagName"'''
                 }
            }
         } 		
