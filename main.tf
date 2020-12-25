@@ -18,6 +18,11 @@ resource "aws_backup_plan" "plan1" {
     rule_name         = var.Rule_Name
     target_vault_name = aws_backup_vault.testvault.name
     schedule          = "cron(0 23 ? * SAT *)"
+    start_window      = 120
+    completion_window = 360
+    lifecycle = {
+       cold_storage_after = 0
+       delete_after       = 7
   }
 
 }
