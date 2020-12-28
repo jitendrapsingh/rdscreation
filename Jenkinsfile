@@ -63,14 +63,15 @@ pipeline {
 			  secretKeyVariable: 'SECRET_KEY']]) {
 			  sh '''
 			  aws backup put-backup-vault-notifications --endpoint-url $Backup_URL --backup-vault-name $VAULT_NAME --sns-topic-arn $SNS_ARN --backup-vault-events BACKUP_JOB_COMPLETED BACKUP_JOB_STARTED'''
-            }
-        } 
-      }
+               }
+            } 
+         }
+  }
 		  
 	post { 
         always { 
             cleanWs()
-        }
+        
     }
  }
 }
