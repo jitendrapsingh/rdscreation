@@ -5,7 +5,9 @@ properties([  parameters([
   string (defaultValue: '', description: 'Please type backup Rule Name', name: 'Rule_Name', trim: false),
   string (defaultValue: '', description: 'Please type Role Name', name: 'IAM_Role', trim: false),
   string (defaultValue: '', description: 'Please type correct Tag name of EC2/RDS', name: 'selection_tag', trim: false),
- string (defaultValue: '', description: 'Please type Resource Name', name: 'Resource_Name', trim: false)
+  string (defaultValue: '', description: 'Please type Resource Name', name: 'Resource_Name', trim: false),
+  string (defaultValue: '', description: 'Please type Backup URL', name: 'Backup_URL', trim: false),
+  string (defaultValue: '', description: 'Please type SNS ARN', name: 'SNS_ARN', trim: false)
   
   
    ])
@@ -52,11 +54,23 @@ pipeline {
 			  terraform apply --auto-approve  -var "REGION=$REGION" -var "ACCESS_KEY=$ACCESS_KEY" -var "SECRET_KEY=$SECRET_KEY" -var "Plan_Name=$Plan_Name" -var "VAULT_NAME=$VAULT_NAME" -var "Rule_Name=$Rule_Name" -var "IAM_Role=$IAM_Role" -var "selection_tag=$selection_tag" -var "Resource_Name=$Resource_Name"'''
                 }
            }
-        } 		
-    }
+        } 
+	  stage('Put Backup') {
+            steps {
+    		  withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', 
+			  accessKeyVariable: 'ACCESS_KEY', 
+			  credentialsId: CREDENTIALS, 
+			  secretKeyVariable: 'SECRET_KEY']]) {
+			  sh '''
+			  aws backup put-backup-vault-notifications --endpoint-url $Backup_URL --backup-vault-name $VAULT_NAME --sns-topic-arn $SNS_ARN --backup-vault-events BACKUP_JOB_COMPLETED BACKUP_JOB_STARTED'''
+         }
+   }
+}
+		  
 	post { 
         always { 
             cleanWs()
         }
     }
+ }
 }
