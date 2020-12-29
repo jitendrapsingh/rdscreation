@@ -7,7 +7,8 @@ properties([  parameters([
   string (defaultValue: '', description: 'Please type correct Tag name of EC2/RDS', name: 'selection_tag', trim: false),
   string (defaultValue: '', description: 'Please type Resource Name', name: 'Resource_Name', trim: false),
   string (defaultValue: '', description: 'Please type Backup URL', name: 'Backup_URL', trim: false),
-  string (defaultValue: '', description: 'Please type SNS ARN', name: 'SNS_ARN', trim: false)
+  string (defaultValue: '', description: 'Please type SNS ARN', name: 'SNS_ARN', trim: false),
+ string (defaultValue: '', description: 'Please type Key', name: 'key', trim: false)
   
   
    ])
@@ -38,7 +39,7 @@ pipeline {
 			  sh '''
 			  set +x
 			  PATH=/usr/local/bin
-			  terraform plan -var "REGION=$REGION" -var "ACCESS_KEY=$ACCESS_KEY" -var "SECRET_KEY=$SECRET_KEY" -var "Plan_Name=$Plan_Name" -var "VAULT_NAME=$VAULT_NAME" -var "Rule_Name=$Rule_Name" -var "IAM_Role=$IAM_Role" -var "selection_tag=$selection_tag" -var "Resource_Name=$Resource_Name"'''
+			  terraform plan -var "REGION=$REGION" -var "ACCESS_KEY=$ACCESS_KEY" -var "SECRET_KEY=$SECRET_KEY" -var "Plan_Name=$Plan_Name" -var "VAULT_NAME=$VAULT_NAME" -var "Rule_Name=$Rule_Name" -var "IAM_Role=$IAM_Role" -var "selection_tag=$selection_tag" -var "Resource_Name=$Resource_Name" -var "key=$key'''
                 }
            }
         }  
@@ -51,7 +52,7 @@ pipeline {
 			  sh '''
 			  set +x
 			  PATH=/usr/local/bin
-			  terraform apply --auto-approve  -var "REGION=$REGION" -var "ACCESS_KEY=$ACCESS_KEY" -var "SECRET_KEY=$SECRET_KEY" -var "Plan_Name=$Plan_Name" -var "VAULT_NAME=$VAULT_NAME" -var "Rule_Name=$Rule_Name" -var "IAM_Role=$IAM_Role" -var "selection_tag=$selection_tag" -var "Resource_Name=$Resource_Name"'''
+			  terraform apply --auto-approve  -var "REGION=$REGION" -var "ACCESS_KEY=$ACCESS_KEY" -var "SECRET_KEY=$SECRET_KEY" -var "Plan_Name=$Plan_Name" -var "VAULT_NAME=$VAULT_NAME" -var "Rule_Name=$Rule_Name" -var "IAM_Role=$IAM_Role" -var "selection_tag=$selection_tag" -var "Resource_Name=$Resource_Name" -var "key=$key"'''
                 }
            }
         } 
