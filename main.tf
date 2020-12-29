@@ -1,10 +1,10 @@
-#terraform {
-#  backend "s3" {
-#   bucket = "sftptestjitendra"
-#    key    = "Backup_Job/tffile1"
-#    region = "eu-west-1"
- #  }
-#  }
+terraform {
+  backend "s3" {
+   bucket = "backuotestjitendra"
+    key    = "Backup_Job/var.key"
+    region = "eu-west-1"
+   }
+  }
 
 resource "aws_backup_vault" "testvault" {
   name        = var.VAULT_NAME
