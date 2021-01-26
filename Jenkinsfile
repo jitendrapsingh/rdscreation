@@ -4,7 +4,7 @@ properties([  parameters([
   string (defaultValue: '', description: 'Please type DataBase Name', name: 'DB_Name', trim: false),
   string (defaultValue: '', description: 'Please type Private Subnet of DataBase', name: 'db-private-subnet', trim: false),
   string (defaultValue: '', description: 'Please type DataBase Snapshot Identifier', name: 'snapshot_identifier', trim: false),
-  string (defaultValue: '', description: 'Please type DataBase Security Groups', name: 'db_SG"', trim: false)
+  string (defaultValue: '', description: 'Please type DataBase Security Groups', name: 'db_SG', trim: false)
   
   
   
