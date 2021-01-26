@@ -5,7 +5,7 @@ variable "SECRET_KEY" {}
 variable "instance_type" {}
 variable "DB_Name" {}
 #variable "license_model" {}
-variable "db-private-subnet" {}
+variable "subnet" {}
 variable "snapshot_identifier" {}
 variable "db_SG" {}
 
