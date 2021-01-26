@@ -56,7 +56,22 @@ pipeline {
 			  terraform apply --auto-approve -var "REGION=$REGION" -var "ACCESS_KEY=$ACCESS_KEY" -var "SECRET_KEY=$SECRET_KEY"  -var "instance_type=$instance_type" -var "DB_Name=$DB_Name" -var "subnet=$subnet" -var "snapshot_identifier=$snapshot_identifier" -var "db_SG=$db_SG"'''
                 }
            }
-        } 
+        }
+         stage('Print_the_DB_Value') {
+            steps {
+    		  withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', 
+			  accessKeyVariable: 'ACCESS_KEY', 
+			  credentialsId: CREDENTIALS, 
+			  secretKeyVariable: 'SECRET_KEY']]) {
+			  sh '''
+              
+              export AWS_ACCESS_KEY_ID=$ACCESS_KEY
+			  export AWS_SECRET_ACCESS_KEY=$SECRET_KEY
+			  aws rds describe-db-instances --db-instance-identifier=$DB_Name --region=$REGION | grep -i address |awk -F " " {'print $2'}
+			  aws rds describe-db-instances --db-instance-identifier=$DB_Name --region=$REGION | grep  -i DBName |awk -F " " {'print $2'}
+                }
+           }
+        }		
          		
     }
 	post { 
