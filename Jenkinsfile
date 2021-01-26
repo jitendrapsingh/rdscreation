@@ -2,7 +2,7 @@ properties([  parameters([
   credentials (credentialType: 'com.cloudbees.jenkins.plugins.awscredentials.AWSCredentialsImpl', defaultValue: '', description: '', name: 'CREDENTIALS', required: false), choice (choices: ['us-east-1', 'us-west-2 ', 'eu-west-1'], description: 'Please Choose your Region', name: 'REGION'),
   string (defaultValue: '', description: 'Please Type DB Instace Type', name: 'instance_type', trim: false),
   string (defaultValue: '', description: 'Please type DataBase Name', name: 'DB_Name', trim: false),
-  string (defaultValue: '', description: 'Please type Private Subnet of DataBase', name: 'db-private-subnet', trim: false),
+  string (defaultValue: '', description: 'Please type DataBase SubNet', name: 'db-private-subnet', trim: false),
   string (defaultValue: '', description: 'Please type DataBase Snapshot Identifier', name: 'snapshot_identifier', trim: false),
   string (defaultValue: '', description: 'Please type DataBase Security Groups', name: 'db_SG', trim: false)
   
