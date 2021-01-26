@@ -53,7 +53,7 @@ pipeline {
               set +x
               
 			  PATH=/usr/local/bin
-			  terraform plan -var "REGION=$REGION" -var "ACCESS_KEY=$ACCESS_KEY" -var "SECRET_KEY=$SECRET_KEY"  -var "instance_type=$instance_type" -var "DB_Name=$DB_Name" -var "db-private-subnet=$db-private-subnet" -var "snapshot_identifier=$snapshot_identifier" -var "db_SG=$db_SG"'''
+			  terraform apply --auto-approve -var "REGION=$REGION" -var "ACCESS_KEY=$ACCESS_KEY" -var "SECRET_KEY=$SECRET_KEY"  -var "instance_type=$instance_type" -var "DB_Name=$DB_Name" -var "db-private-subnet=$db-private-subnet" -var "snapshot_identifier=$snapshot_identifier" -var "db_SG=$db_SG"'''
                 }
            }
         } 
