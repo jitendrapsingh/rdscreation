@@ -1,17 +1,13 @@
-# simpleCode
 variable "REGION" {}
 variable "ACCESS_KEY" {}
 variable "SECRET_KEY" {}
-variable "Plan_Name" {}
-variable "Rule_Name" {}
-variable "selection_tag" {}
-variable "VAULT_NAME" {}
-variable "IAM_Role" {}
-variable "Resource_Name" {}
-variable "Backup_URL" {}
-variable "SNS_ARN" {}
-#variable "key" {}
-
+#variable "topic_name" {}
+variable "instance_type" {}
+variable "DB_Name" {}
+#variable "license_model" {}
+variable "db-private-subnet" {}
+variable "snapshot_identifier" {}
+variable "db_SG" {}
 
 
 
