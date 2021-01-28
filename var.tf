@@ -8,6 +8,8 @@ variable "DB_Name" {}
 variable "subnet" {}
 variable "snapshot_identifier" {}
 variable "db_SG" {}
+variable "size" {}
+
 
 
 
