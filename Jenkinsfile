@@ -5,7 +5,8 @@ properties([  parameters([
   string (defaultValue: '', description: 'Please type DataBase SubNet', name: 'subnet', trim: false),
   string (defaultValue: '', description: 'Please type DataBase Snapshot Identifier', name: 'snapshot_identifier', trim: false),
   string (defaultValue: '', description: 'Please type DataBase Security Groups', name: 'db_SG', trim: false),
-  string (defaultValue: '', description: 'Please type Size of Storage', name: 'allocated_storage', trim: false)
+  string (defaultValue: '', description: 'Please type Size of Storage', name: 'allocated_storage', trim: false),
+	string (defaultValue: '', description: 'Please type Size of DB Name', name: 'DB1_Name', trim: false)
   
   
   
@@ -40,7 +41,7 @@ pipeline {
               
               
 			  PATH=/usr/local/bin
-			  terraform plan -var "REGION=$REGION" -var "ACCESS_KEY=$ACCESS_KEY" -var "SECRET_KEY=$SECRET_KEY"  -var "instance_type=$instance_type" -var "DB_Name=$DB_Name" -var "subnet=$subnet" -var "snapshot_identifier=$snapshot_identifier" -var "db_SG=$db_SG" -var "allocated_storage=$allocated_storage"'''
+			  terraform plan -var "REGION=$REGION" -var "ACCESS_KEY=$ACCESS_KEY" -var "SECRET_KEY=$SECRET_KEY"  -var "instance_type=$instance_type" -var "DB_Name=$DB_Name" -var "subnet=$subnet" -var "snapshot_identifier=$snapshot_identifier" -var "db_SG=$db_SG" -var "allocated_storage=$allocated_storage" -var "DB1_Name=$DB1_Name"'''
                 }
            }
         }  
@@ -54,7 +55,7 @@ pipeline {
               set +x
               
 			  PATH=/usr/local/bin
-			  terraform apply --auto-approve -var "REGION=$REGION" -var "ACCESS_KEY=$ACCESS_KEY" -var "SECRET_KEY=$SECRET_KEY"  -var "instance_type=$instance_type" -var "DB_Name=$DB_Name" -var "subnet=$subnet" -var "snapshot_identifier=$snapshot_identifier" -var "db_SG=$db_SG" -var "allocated_storage=$allocated_storage"'''
+			  terraform apply --auto-approve -var "REGION=$REGION" -var "ACCESS_KEY=$ACCESS_KEY" -var "SECRET_KEY=$SECRET_KEY"  -var "instance_type=$instance_type" -var "DB_Name=$DB_Name" -var "subnet=$subnet" -var "snapshot_identifier=$snapshot_identifier" -var "db_SG=$db_SG" -var "allocated_storage=$allocated_storage" -var "DB1_Name=$DB1_Name"'''
                 }
            }
         }
