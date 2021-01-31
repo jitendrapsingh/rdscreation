@@ -11,5 +11,6 @@ resource "aws_db_instance" "db_from_snapshot" {
   skip_final_snapshot = false
   allow_major_version_upgrade = false
   auto_minor_version_upgrade = false
+  license_model = var.license_model
 
 }
