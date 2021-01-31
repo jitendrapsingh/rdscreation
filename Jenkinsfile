@@ -7,7 +7,7 @@ properties([  parameters([
   string (defaultValue: '', description: 'Please type DataBase Security Groups', name: 'db_SG', trim: false),
   string (defaultValue: '', description: 'Please type Size of Storage', name: 'allocated_storage', trim: false),
   string (defaultValue: '', description: 'Please type Size of DB Name', name: 'DB1_Name', trim: false),
-  string (defaultValue: '', description: 'Please type License Model', name: 'license_model', trim: false)
+  choice (choices: ['license-included', 'Bring Your Own License'], description: 'Please select license_model', name: 'license_model')
   
   
   
