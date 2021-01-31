@@ -10,6 +10,7 @@ variable "snapshot_identifier" {}
 variable "db_SG" {}
 variable "allocated_storage" {}
 variable "DB1_Name" {}
+variable "license_model" {}
 
 
 
